@@ -76,8 +76,6 @@ body {
 .navbar .sub-nav-items {
   border-top: 0px solid #005;
   position: absolute;
-  top: 100%;
-  left: 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -89,6 +87,7 @@ body {
   transition:
     max-height 0.2s,
     border-top 0.2s;
+  width: 100%;
 }
 
 .navbar .sub-nav:hover .sub-nav-items {
