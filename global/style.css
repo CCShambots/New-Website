@@ -1,5 +1,9 @@
 :root {
   --primary: #004f9e;
+  --primary-dark: #003366;
+  --footer: #001;
+  --text: #000;
+  --alt-text: #fff;
 }
 
 body {
@@ -9,10 +13,12 @@ body {
 
 .navbar {
   background-color: var(--primary);
-  width: 100vw;
+  width: 100%;
   left: 0;
+  top: 0;
   z-index: 500;
   height: 60px;
+  display: block;
 }
 
 .navbar .logo {
@@ -46,7 +52,7 @@ body {
 .navbar .nav-item a {
   display: flex;
   align-items: center;
-  color: white;
+  color: var(--alt-text);
   text-align: center;
   text-decoration: none;
   padding: 10px 20px;
@@ -55,7 +61,7 @@ body {
 .navbar .sub-nav a {
   display: flex;
   align-items: center;
-  color: white;
+  color: var(--alt-text);
   text-align: center;
   text-decoration: none;
   padding: 10px 20px;
@@ -68,7 +74,7 @@ body {
 }
 
 .navbar .sub-nav-items {
-  border-top: none;
+  border-top: 0px solid #005;
   position: absolute;
   top: 100%;
   left: 0;
@@ -80,17 +86,19 @@ body {
   border-radius: 0 0 10px 10px;
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.2s;
+  transition:
+    max-height 0.2s,
+    border-top 0.2s;
 }
 
 .navbar .sub-nav:hover .sub-nav-items {
-  border-top: 1px solid #000a44;
+  border-top: 1px solid #005;
   max-height: 300px;
 }
 
 .navbar .sub-nav-item a {
   display: block;
-  color: white;
+  color: var(--alt-text);
   text-decoration: none;
   transition: background-color 0.05s;
   padding: 10px;
@@ -99,9 +107,72 @@ body {
 }
 
 .navbar .sub-nav-item a::after {
-    content: "";
+  content: "";
 }
 
 .navbar .sub-nav-item:hover {
-  background-color: #003366;
+  background-color: var(--primary-dark);
+}
+
+main {
+  height: 47.2vh;
+}
+
+footer {
+  background-color: var(--footer);
+  color: var(--alt-text);
+  padding: 5px 15px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 7fr 1fr 1fr;
+}
+
+.footer-content {
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.footer-links .link-list {
+  list-style-type: none;
+  padding: 0;
+}
+.footer-links .link-list .link-header {
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.footer-links .link-list li {
+  margin: 15px 0;
+}
+.footer-links .link-list li a {
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-links .link-list li a:hover {
+  color: #fff;
+}
+
+.footer-socials {
+  grid-area: 2 / 1 / 2 / 2;
+  grid-column: span 2;
+  text-align: center;
+  padding: 10px;
+}
+.footer-socials a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 0 10px;
+}
+.footer-socials a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  grid-area: 3 / 1 / 3 / 2;
+  grid-column: span 2;
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 10px;
 }
