@@ -26,9 +26,8 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  align-items: center;
   height: 60px;
+  display: flex;
 }
 
 .navbar .nav-item,
@@ -68,8 +67,7 @@ body {
 }
 
 .navbar .sub-nav-items {
-  position: absolute;
-  top: 100%;
+  position: relative;
   left: 0;
   list-style-type: none;
   margin: 0;
@@ -78,14 +76,11 @@ body {
   z-index: 600;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
-  
-  /* Set max-height for animation */
   max-height: 0;
   transition: max-height 0.2s;
 }
 
 .navbar .sub-nav:hover .sub-nav-items {
-  /* Set a max-height large enough to fit all sub-items */
   max-height: 300px;
 }
 
@@ -100,7 +95,7 @@ body {
 }
 
 .navbar .sub-nav-item a::after {
-    content: "";
+  content: "";
 }
 
 .navbar .sub-nav-item:hover {
