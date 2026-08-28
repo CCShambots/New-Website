@@ -113,8 +113,10 @@ body {
   background-color: var(--primary-dark);
 }
 
-main {
-  height: 42.3vh;
+.superscript {
+  position: relative;
+  bottom: 0.4em;
+  font-size: 0.6em;
 }
 
 footer {
@@ -183,4 +185,58 @@ footer {
   font-size: 0.8em;
   text-align: center;
   margin-top: 10px;
+}
+
+.robots-container {
+  display: flex;
+  flex-wrap: wrap;    
+  justify-content: center;
+  gap: 20px;
+}
+
+.robot-card {
+  width: calc((100% - (3 * 20px)) / 4);
+  min-width: 300px;
+  box-sizing: border-box;
+  background-color: var(--primary);
+  color: var(--alt-text);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.robot-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.robot-card h2 {
+  margin-top: 0;
+}
+
+.robot-card .robot-year {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 0;
+  text-align: left;
+}
+
+.robot-card .img-container {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.robot-card .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main {
+  padding: 20px;
 }
