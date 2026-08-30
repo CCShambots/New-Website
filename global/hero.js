@@ -19,8 +19,6 @@ function buildInitialCarousel() {
         });
 }
 
-buildInitialCarousel();
-
 const carouselMask = document.querySelector('.carousel-mask');
 const carousel = document.getElementById('hero-carousel');
 let images = Array.from(carousel.querySelectorAll('.hero-carousel-image'));
@@ -113,6 +111,7 @@ carouselMask.addEventListener('wheel', (e) => {
     }
 }, { passive: false });
 
+buildInitialCarousel();
 centerActiveElement();
 images = Array.from(carousel.querySelectorAll('.hero-carousel-image'));
 bindImageClickEvents();
