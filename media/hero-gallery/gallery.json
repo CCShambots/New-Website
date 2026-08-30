@@ -1,0 +1,16 @@
+{
+    "images": [
+        {
+            "src": "media/hero-gallery/hero1.jpg",
+            "alt": "Hero Image 1"
+        },
+        {
+            "src": "media/hero-gallery/hero2.jpg",
+            "alt": "Hero Image 2"
+        },
+        {
+            "src": "media/hero-gallery/hero3.jpg",
+            "alt": "Hero Image 3"
+        }
+    ]
+}

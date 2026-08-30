@@ -189,9 +189,10 @@ footer {
 
 .robots-container {
   display: flex;
-  flex-wrap: wrap;    
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  margin-top: 40px;
 }
 
 .robot-card {
@@ -203,7 +204,9 @@ footer {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .robot-card:hover {
@@ -237,6 +240,128 @@ footer {
   object-fit: cover;
 }
 
-main {
-  padding: 20px;
+.page-title {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.hero {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 60px);
+  padding: 0 40px;
+  background: linear-gradient(to top, rgb(from var(--primary) r g b / 0.2), transparent);
+}
+
+.hero .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  margin: 0;
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin: 10px 0;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-type: x mandatory;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  isolation: isolate;
+  perspective: 500px;
+  perspective-origin: 50% 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  padding: 10px;
+}
+
+.carousel-mask {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  isolation: isolate;
+  justify-content: center;
+  align-items: center;
+  mask-image: linear-gradient(to bottom, transparent 0%, var(--mask-color) 10%, var(--mask-color) 90%, transparent 100%);
+}
+
+.hero-carousel-image {
+  min-height: 25vw;
+  height: 25vw;
+  aspect-ratio: 1.4;
+  overflow: hidden;
+  scroll-snap-align: start;
+  object-fit: cover;
+  border-radius: 20px;
+  opacity: 0.8;
+  transition:
+    0.75s ease-in-out,
+    box-shadow 0s;
+  transform: rotateX(10deg);
+  transform-origin: center;
+  background-color: var(--background);
+  cursor: pointer;
+  color: var(--text);
+}
+
+.carousel .active {
+  min-height: 28vw;
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+
+.carousel .active ~ .hero-carousel-image {
+  transform: rotateX(-10deg);
+  transform-origin: top;
+}
+
+.carousel .slide-up {
+  transform: translateY(calc(-25vw - 25px)) rotateX(10deg);
+}
+
+.carousel .active ~ .slide-up {
+  transform: translateY(calc(-25vw - 25px)) rotateX(-10deg);
+}
+
+.carousel .slide-up.active {
+  transform: translateY(calc(-25vw - 25px));
+}
+
+.carousel .slide-down {
+  transform: translateY(calc(25vw + 25px)) rotateX(10deg);
+}
+
+.carousel .active ~ .slide-down {
+  transform: translateY(calc(25vw + 25px)) rotateX(-10deg);
+}
+
+.carousel .slide-down.active {
+  transform: translateY(calc(25vw + 25px));
+}
+
+.hero-carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section.content {
+  padding: 40px;
 }
