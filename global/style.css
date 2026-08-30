@@ -4,6 +4,9 @@
   --footer: #001;
   --text: #000;
   --alt-text: #fff;
+  --background: #f0f0f0;
+  --alt-background: #e0e0e0;
+  --mask-color: rgba(0, 0, 0, 1);
 }
 
 body {
