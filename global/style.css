@@ -8,7 +8,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .navbar {
@@ -253,6 +253,7 @@ footer {
   height: calc(100vh - 60px);
   padding: 0 40px;
   background: linear-gradient(to top, rgb(from var(--primary) r g b / 0.2), transparent);
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .hero .main {
@@ -364,4 +365,12 @@ footer {
 
 section.content {
   padding: 40px;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("fonts/HelveticaNeueBold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }

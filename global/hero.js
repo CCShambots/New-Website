@@ -16,6 +16,9 @@ function buildInitialCarousel() {
                 imgContainer.appendChild(imgElement);
                 carousel.appendChild(imgContainer);
             });
+            images = Array.from(carousel.querySelectorAll('.hero-carousel-image'));
+            bindImageClickEvents();
+            centerActiveElement();
         });
 }
 
@@ -112,6 +115,3 @@ carouselMask.addEventListener('wheel', (e) => {
 }, { passive: false });
 
 buildInitialCarousel();
-centerActiveElement();
-images = Array.from(carousel.querySelectorAll('.hero-carousel-image'));
-bindImageClickEvents();
