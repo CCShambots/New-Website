@@ -312,7 +312,7 @@ footer {
   isolation: isolate;
   justify-content: center;
   align-items: center;
-  mask-image: linear-gradient(to bottom, transparent 0%, var(--mask-color) 10%, var(--mask-color) 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, var(--mask-color) 10%, var(--mask-color) 90%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .hero-carousel-image {
@@ -335,7 +335,7 @@ footer {
 }
 
 .carousel .active {
-  min-height: 28vw;
+  min-height: 29vw;
   opacity: 1;
   transform: rotateX(0deg);
 }
