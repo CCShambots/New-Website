@@ -3,7 +3,13 @@ name: Generate Sitemap and Deploy
 on:
   push:
     branches:
-      - main # Change to your default branch name if different
+      - main
+    paths-ignore:
+      - 'sitemap.xml'
+      - '.github/workflows/'
+      - '.gitignore'
+      - 'README.md'
+      - 'LICENSE'
 
 permissions:
   contents: write
@@ -15,29 +21,32 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Job 1: Build the sitemap and push it to the repo
-  Build Sitemap:
+  build-sitemap:
+    name: Build Sitemap
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Fetches all history so git commit timestamps are accurate
 
     - name: Generate the sitemap
       uses: cicirello/generate-sitemap@v1
       with:
         base-url-path: https://example.com # Replace with your actual website URL
+        date-only: true # Optional: Reduces noisy timestamp diffs by omitting hours/minutes
 
     - name: Commit and push sitemap
       run: |
         git config user.name "github-actions[bot]"
-        git config user.email "41898282+github-actions[bot]@://github.com"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add sitemap.xml
         git commit -m "Automated sitemap update" || exit 0
         git push
 
-  # Job 2: Deploy to GitHub Pages (Waits for Job 1)
-  Deploy Site:
-    needs: Build Sitemap # This forces the job to wait for the sitemap to finish
+  deploy-site:
+    name: Deploy Site
+    needs: build-sitemap
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -46,7 +55,8 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
       with:
-        ref: main # Ensures it grabs the latest commit made by the sitemap job
+        ref: main
+        fetch-depth: 0
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
@@ -54,8 +64,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: '.' # Change to your build folder (e.g., './dist' or './_site') if you use a generator
+        path: '.'
 
-    - name: Deploy to GitHub Actions Pages
+    - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
