@@ -146,6 +146,10 @@ footer {
   font-size: 1em;
 }
 
+.footer-logo {
+  width: 80%;
+}
+
 .footer-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
