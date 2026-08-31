@@ -1,0 +1,61 @@
+name: Generate Sitemap and Deploy
+
+on:
+  push:
+    branches:
+      - main # Change to your default branch name if different
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job 1: Build the sitemap and push it to the repo
+  sitemap_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Generate the sitemap
+      uses: cicirello/generate-sitemap@v1
+      with:
+        base-url-path: https://yourdomain.com # Replace with your actual website URL
+
+    - name: Commit and push sitemap
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@://github.com"
+        git add sitemap.xml
+        git commit -m "Automated sitemap update" || exit 0
+        git push
+
+  # Job 2: Deploy to GitHub Pages (Waits for Job 1)
+  deploy_job:
+    needs: sitemap_job # This forces the job to wait for the sitemap to finish
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+      with:
+        ref: main # Ensures it grabs the latest commit made by the sitemap job
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.' # Change to your build folder (e.g., './dist' or './_site') if you use a generator
+
+    - name: Deploy to GitHub Actions Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
