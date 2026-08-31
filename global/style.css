@@ -231,7 +231,7 @@ footer {
   margin-top: 0;
 }
 
-.card .year {
+.card .card-top {
   font-size: 1.1em;
   font-weight: bold;
   margin-bottom: 10px;
@@ -451,4 +451,9 @@ section.content {
   border-width: 10px;
   border-style: solid;
   border-color: transparent transparent var(--primary) transparent;
+}
+
+.mentor-card {
+  min-width: 250px;
+  width: calc((100% - (4 * 20px)) / 5);
 }
