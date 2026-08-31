@@ -25,7 +25,7 @@ jobs:
     - name: Generate the sitemap
       uses: cicirello/generate-sitemap@v1
       with:
-        base-url-path: https://yourdomain.com # Replace with your actual website URL
+        base-url-path: https://example.com # Replace with your actual website URL
 
     - name: Commit and push sitemap
       run: |

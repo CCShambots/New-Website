@@ -1,11 +1,11 @@
 :root {
   --primary: #004f9e;
   --primary-dark: #003366;
-  --footer: #001;
   --text: #000;
-  --alt-text: #fff;
+  --dark-text: #fff;
   --background: #f0f0f0;
   --alt-background: #e0e0e0;
+  --dark-background: #001;
   --mask-color: rgba(0, 0, 0, 1);
 }
 
@@ -64,7 +64,7 @@ body {
 .navbar .nav-item a {
   display: flex;
   align-items: center;
-  color: var(--alt-text);
+  color: var(--dark-text);
   text-align: center;
   text-decoration: none;
   padding: 10px 20px;
@@ -73,7 +73,7 @@ body {
 .navbar .sub-nav a {
   display: flex;
   align-items: center;
-  color: var(--alt-text);
+  color: var(--dark-text);
   text-align: center;
   text-decoration: none;
   padding: 10px 20px;
@@ -109,7 +109,7 @@ body {
 
 .navbar .sub-nav-item a {
   display: block;
-  color: var(--alt-text);
+  color: var(--dark-text);
   text-decoration: none;
   transition: background-color 0.05s;
   padding: 10px;
@@ -132,8 +132,8 @@ body {
 }
 
 footer {
-  background-color: var(--footer);
-  color: var(--alt-text);
+  background-color: var(--dark-background);
+  color: var(--dark-text);
   padding: 50px 50px 0px 50px;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -216,7 +216,7 @@ footer {
   min-width: 300px;
   box-sizing: border-box;
   background-color: var(--primary);
-  color: var(--alt-text);
+  color: var(--dark-text);
   border-radius: 20px;
   padding: 20px;
   text-align: center;
@@ -391,14 +391,14 @@ section.content {
 
 .hero-button {
   background-color: var(--primary);
-  color: var(--alt-text);
+  color: var(--dark-text);
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 50px;
   transition: 0.3s ease;
 }
 .hero-button:hover {
-  background-color: var(--alt-text);
+  background-color: var(--dark-text);
   color: var(--primary);
 }
 
@@ -460,4 +460,9 @@ section.content {
 .mentor-card {
   min-width: 250px;
   width: calc((100% - (4 * 20px)) / 5);
+}
+
+.dark {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
 }
