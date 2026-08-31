@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   # Job 1: Build the sitemap and push it to the repo
-  sitemap_job:
+  Build Sitemap:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
@@ -36,8 +36,8 @@ jobs:
         git push
 
   # Job 2: Deploy to GitHub Pages (Waits for Job 1)
-  deploy_job:
-    needs: sitemap_job # This forces the job to wait for the sitemap to finish
+  Deploy Site:
+    needs: Build Sitemap # This forces the job to wait for the sitemap to finish
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
