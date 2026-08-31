@@ -6,7 +6,6 @@ on:
       - main
     paths-ignore:
       - 'sitemap.xml'
-      - '.github/workflows/'
       - '.gitignore'
       - 'README.md'
       - 'LICENSE'
@@ -28,13 +27,12 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0 # Fetches all history so git commit timestamps are accurate
+        fetch-depth: 0
 
     - name: Generate the sitemap
       uses: cicirello/generate-sitemap@v1
       with:
-        base-url-path: https://example.com # Replace with your actual website URL
-        date-only: true # Optional: Reduces noisy timestamp diffs by omitting hours/minutes
+        base-url-path: https://example.com
 
     - name: Commit and push sitemap
       run: |
