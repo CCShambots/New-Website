@@ -87,7 +87,7 @@ body {
 }
 
 .nav-item a.active,
-.sub-nav.active a,
+.sub-nav.active > a,
 .sub-nav-item a.active {
   color: var(--alt-text) !important;
 }
@@ -516,4 +516,57 @@ form button {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.blog {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 40px;
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.blog-posts .blog-post {
+  background-color: var(--alt-background);
+  color: var(--text);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.blog-posts .blog-post:hover {
+  transform: translateY(-2.5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.blog-posts .blog-post h2 {
+  margin-top: 0;
+}
+.blog-posts .blog-post .blog-post-date {
+  font-size: 0.9em;
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.blog-posts .blog-post a {
+  background-color: var(--primary);
+  color: var(--dark-text);
+  padding: 5px 10px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  border: 2px solid var(--primary);
+}
+.blog-posts .blog-post a:hover {
+  background-color: var(--dark-text);
+  color: var(--primary);
+}
+
+.blog-nav {
+  padding: 20px;
 }
