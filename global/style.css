@@ -570,3 +570,106 @@ form button {
 .blog-nav {
   padding: 20px;
 }
+
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark-text);
+  font-size: 1.5em;
+  cursor: pointer;
+  float: right;
+  height: 60px;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  
+  .hero, 
+  .split, 
+  .blog, 
+  .blog-posts {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 30px 20px;
+    column-gap: 0;
+    row-gap: 30px;
+  }
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+  .footer-socials, 
+  .footer-copyright {
+    grid-column: span 1;
+    grid-area: auto;
+  }
+
+  .card, 
+  .award-card, 
+  .mentor-card {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .hero-carousel-image {
+    min-height: 60vw;
+    height: 60vw;
+  }
+  .carousel .active {
+    min-height: 70vw;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide the nav items by default and position them as a pop-out */
+  .navbar .nav-items {
+    display: none; /* Hidden initially */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Right below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* This class will be added by JavaScript to show the menu */
+  .navbar .nav-items.active {
+    display: flex;
+  }
+
+  .navbar .nav-item {
+    width: 100%;
+    border-top: 1px solid var(--primary-dark);
+  }
+
+  /* Creates a full-width flex container */
+.sub-nav {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Forces each item to grow and fill the available space evenly */
+.sub-nav-item {
+  flex: 1; 
+  text-align: center;
+}
+
+/* Ensures the link fills its flex container */
+.sub-nav-item a {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+}
+}
