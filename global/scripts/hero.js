@@ -1,4 +1,3 @@
-
 function buildInitialCarousel() {
     fetch('media/hero-gallery/gallery.json')
         .then(response => response.json())
@@ -18,7 +17,11 @@ function buildInitialCarousel() {
             });
             images = Array.from(carousel.querySelectorAll('.hero-carousel-image'));
             bindImageClickEvents();
-            centerActiveElement();
+            if (isMobile()) {
+                updatePositions();
+            } else {
+                centerActiveElement();
+            }
         });
 }
 
@@ -27,6 +30,38 @@ const carousel = document.getElementById('hero-carousel');
 let images = Array.from(carousel.querySelectorAll('.hero-carousel-image'));
 let isHovered = false;
 let isTransitioning = false;
+let activeIndex = 0;
+
+function isMobile() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+/* ---------- Mobile: index-offset based positioning ----------
+   No DOM reordering, no sibling selectors. Each image's visual
+   position is purely a function of (its data index - activeIndex),
+   so JS state and CSS state can never disagree. */
+
+function updatePositions() {
+    const total = images.length;
+    images.forEach((img, i) => {
+        let offset = i - activeIndex;
+        if (offset > total / 2) offset -= total;
+        if (offset < -total / 2) offset += total;
+        img.style.setProperty('--offset', offset);
+        img.style.setProperty('--abs-offset', Math.abs(offset));
+        img.classList.toggle('active', i === activeIndex);
+    });
+}
+
+function goToIndex(newIndex) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    activeIndex = (newIndex + images.length) % images.length;
+    updatePositions();
+    setTimeout(() => { isTransitioning = false; }, 750);
+}
+
+/* ---------- Desktop: original DOM-reorder + class based system ---------- */
 
 function showImage(targetElement, direction = 'up') {
     if (!targetElement || isTransitioning) return;
@@ -47,31 +82,17 @@ function showImage(targetElement, direction = 'up') {
     }, 750);
 }
 
-function nextImage() {
-    const currentActive = carousel.querySelector('.active');
-    const currentIndex = images.indexOf(currentActive);
-    const nextIndex = (currentIndex + 1) % images.length;
-    showImage(images[nextIndex], 'up');
-}
-
-function prevImage() {
-    const currentActive = carousel.querySelector('.active');
-    const currentIndex = images.indexOf(currentActive);
-    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(images[prevIndex], 'down');
-}
-
 function centerActiveElement() {
     const items = Array.from(carousel.children);
     const totalItems = items.length;
 
     items.forEach(item => item.classList.remove('slide-up', 'slide-down'));
 
-    const activeIndex = items.findIndex(item => item.classList.contains('active'));
-    if (activeIndex === -1) return;
+    const activeIdx = items.findIndex(item => item.classList.contains('active'));
+    if (activeIdx === -1) return;
 
     const middleIndex = Math.floor(totalItems / 2);
-    let shiftCount = activeIndex - middleIndex;
+    let shiftCount = activeIdx - middleIndex;
 
     if (shiftCount !== 0) {
         const rearrangedItems = [
@@ -82,12 +103,40 @@ function centerActiveElement() {
     }
 }
 
+/* ---------- Shared navigation entry points ---------- */
+
+function nextImage() {
+    if (isMobile()) {
+        goToIndex(activeIndex + 1);
+        return;
+    }
+    const currentActive = carousel.querySelector('.active');
+    const currentIndex = images.indexOf(currentActive);
+    const nextIndex = (currentIndex + 1) % images.length;
+    showImage(images[nextIndex], 'up');
+}
+
+function prevImage() {
+    if (isMobile()) {
+        goToIndex(activeIndex - 1);
+        return;
+    }
+    const currentActive = carousel.querySelector('.active');
+    const currentIndex = images.indexOf(currentActive);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(images[prevIndex], 'down');
+}
+
 function bindImageClickEvents() {
     images.forEach((img, index) => {
         img.onclick = () => {
-            const activeIndex = images.findIndex(item => item.classList.contains('active'));
-            if (index !== activeIndex) {
-                const dir = index > activeIndex ? 'up' : 'down';
+            if (isMobile()) {
+                goToIndex(index);
+                return;
+            }
+            const currentIndex = images.findIndex(item => item.classList.contains('active'));
+            if (index !== currentIndex) {
+                const dir = index > currentIndex ? 'up' : 'down';
                 showImage(img, dir);
             }
         };
