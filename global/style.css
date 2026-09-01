@@ -633,36 +633,51 @@ form button {
 
   .carousel {
     flex-direction: row;
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    perspective: none;
-    padding: 10px 20px;
-    gap: 15px;
   }
 
   .carousel-mask {
-    overflow: visible;
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, var(--mask-color) 8%, var(--mask-color) 92%, rgba(0, 0, 0, 0.7) 100%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, var(--mask-color) 10%, var(--mask-color) 90%, rgba(0, 0, 0, 0.7) 100%);
   }
 
-  .hero-carousel-image,
-  .carousel .active,
-  .carousel .slide-up,
-  .carousel .slide-down,
-  .carousel .active ~ .hero-carousel-image,
-  .carousel .active ~ .slide-up,
-  .carousel .active ~ .slide-down,
-  .carousel .slide-up.active,
-  .carousel .slide-down.active {
-    transform: none !important;
-    flex: 0 0 auto;
-    min-height: unset;
+  .hero-carousel-image {
     height: 45vw;
+    min-height: unset;
     width: 70vw;
-    scroll-snap-align: center;
-    opacity: 1;
+    flex: 0 0 auto;
+    transform: rotateY(10deg);
+    transform-origin: right center;
+  }
+
+  .carousel .active {
+    min-height: unset;
+    height: 50vw;
+    width: 75vw;
+    transform: rotateY(0deg);
+  }
+
+  .carousel .active ~ .hero-carousel-image {
+    transform: rotateY(-10deg);
+    transform-origin: left center;
+  }
+
+  .carousel .slide-up {
+    transform: translateX(calc(-70vw - 15px)) rotateY(10deg);
+  }
+  .carousel .active ~ .slide-up {
+    transform: translateX(calc(-70vw - 15px)) rotateY(-10deg);
+  }
+  .carousel .slide-up.active {
+    transform: translateX(calc(-70vw - 15px));
+  }
+
+  .carousel .slide-down {
+    transform: translateX(calc(70vw + 15px)) rotateY(10deg);
+  }
+  .carousel .active ~ .slide-down {
+    transform: translateX(calc(70vw + 15px)) rotateY(-10deg);
+  }
+  .carousel .slide-down.active {
+    transform: translateX(calc(70vw + 15px));
   }
 
   .menu-toggle {
