@@ -499,15 +499,14 @@ label {
 form input[type="text"],
 form input[type="email"],
 form textarea {
-  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid var(--primary);
   border-radius: 5px;
   background-color: var(--alt-background);
   color: var(--text);
-  max-width: 100%;
-  min-width: 100%;
+  max-width: calc(100% - 20px);
+  min-width: calc(100% - 20px);
 }
 
 form button {
@@ -702,5 +701,10 @@ form button {
     width: 100%;
     padding: 12px 40px; /* Extra left padding to indent sub-items */
     box-sizing: border-box; /* Prevents padding from causing overflow */
+  }
+
+  .contact-form {
+    margin-top: 0;
+    padding: 0;
   }
 }
