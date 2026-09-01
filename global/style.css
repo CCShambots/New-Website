@@ -671,7 +671,7 @@ form button {
     height: 45vw;
     min-height: unset;
     flex: 0 0 auto;
-    transform: rotateY(10deg) scale(0.9);
+    transform: rotateY(1deg) scale(0.9);
     transform-origin: right center;
   }
 
@@ -680,28 +680,28 @@ form button {
   }
 
   .carousel .active ~ .hero-carousel-image {
-    transform: rotateY(-10deg) scale(0.9);
+    transform: rotateX(-1deg) scale(0.9);
     transform-origin: left center;
   }
 
   .carousel .slide-up {
-    transform: translateX(calc(-70vw - 15px)) rotateY(10deg) scale(0.9);
+    transform: translateY(15px) rotateY(1deg) scale(0.9);
   }
   .carousel .active ~ .slide-up {
-    transform: translateX(calc(-70vw - 15px)) rotateY(-10deg) scale(0.9);
+    transform: translateY(15px) rotateY(-1deg) scale(0.9);
   }
   .carousel .slide-up.active {
-    transform: translateX(calc(-70vw - 15px)) scale(1);
+    transform: translateY(15px) scale(1);
   }
 
   .carousel .slide-down {
-    transform: translateX(calc(70vw + 15px)) rotateY(10deg) scale(0.9);
+    transform: translateY(-15px) rotateY(1deg) scale(0.9);
   }
   .carousel .active ~ .slide-down {
-    transform: translateX(calc(70vw + 15px)) rotateY(-10deg) scale(0.9);
+    transform: translateY(-15px) rotateY(-1deg) scale(0.9);
   }
   .carousel .slide-down.active {
-    transform: translateX(calc(70vw + 15px)) scale(1);
+    transform: translateY(-15px) scale(1);
   }
 
   .menu-toggle {
