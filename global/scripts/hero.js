@@ -1,3 +1,4 @@
+
 function buildInitialCarousel() {
     fetch('media/hero-gallery/gallery.json')
         .then(response => response.json())
@@ -47,7 +48,6 @@ function showImage(targetElement, direction = 'up') {
 }
 
 function nextImage() {
-    if (isTransitioning) return;
     const currentActive = carousel.querySelector('.active');
     const currentIndex = images.indexOf(currentActive);
     const nextIndex = (currentIndex + 1) % images.length;
@@ -55,7 +55,6 @@ function nextImage() {
 }
 
 function prevImage() {
-    if (isTransitioning) return;
     const currentActive = carousel.querySelector('.active');
     const currentIndex = images.indexOf(currentActive);
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
@@ -75,19 +74,11 @@ function centerActiveElement() {
     let shiftCount = activeIndex - middleIndex;
 
     if (shiftCount !== 0) {
-        // Suppress transitions so the instant DOM reorder doesn't render as a visible jump
-        items.forEach(item => item.style.transition = 'none');
-
         const rearrangedItems = [
             ...items.slice(shiftCount),
             ...items.slice(0, shiftCount)
         ];
         rearrangedItems.forEach(item => carousel.appendChild(item));
-
-        // Force a reflow so the browser commits the new layout before transitions return
-        carousel.offsetHeight;
-
-        items.forEach(item => item.style.transition = '');
     }
 }
 
@@ -95,11 +86,9 @@ function bindImageClickEvents() {
     images.forEach((img, index) => {
         img.onclick = () => {
             const activeIndex = images.findIndex(item => item.classList.contains('active'));
-            if (index === activeIndex) return;
-            if (index > activeIndex) {
-                nextImage();
-            } else {
-                prevImage();
+            if (index !== activeIndex) {
+                const dir = index > activeIndex ? 'up' : 'down';
+                showImage(img, dir);
             }
         };
     });
