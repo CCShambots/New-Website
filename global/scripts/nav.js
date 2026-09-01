@@ -17,5 +17,6 @@ navLinks.forEach(link => {
 subNavLinks.forEach(link => {
     if (isCurrentUrl(link.getAttribute('href'))) {
         link.classList.add('active');
+        link.closest('.sub-nav').classList.add('active');
     }
 });
