@@ -647,7 +647,6 @@ form button {
     flex: 0 0 auto;
     transform: rotateY(10deg) scale(0.9);
     transform-origin: right center;
-    transform: translateX( calc(70vw * var(--offset)))
   }
 
   .carousel .active {
