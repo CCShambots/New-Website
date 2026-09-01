@@ -1,12 +1,13 @@
 :root {
-  --primary: #004f9e;
-  --primary-dark: #003366;
+  --primary: #1f328e;
+  --primary-dark: #001f5d;
+  --accent: #f4c430; /*#c9a978*/
   --text: #000;
   --dark-text: #fff;
   --alt-text: #ccc;
   --background: #f0f0f0;
   --alt-background: #e0e0e0;
-  --dark-background: #001;
+  --dark-background: #00000a;
   --mask-color: rgba(0, 0, 0, 1);
 }
 
@@ -59,7 +60,7 @@ body {
 .navbar .nav-item:hover,
 .sub-nav a:hover {
   position: relative;
-  background-color: #003366;
+  background-color: var(--primary-dark);
 }
 
 .navbar .nav-item a {
@@ -168,7 +169,7 @@ footer {
   margin: 0;
 }
 .footer-links .link-list .link-header {
-  color: var(--primary);
+  color: var(--accent);
   font-weight: bold;
 }
 .footer-links .link-list li {
@@ -583,7 +584,31 @@ form button {
   padding: 0 20px;
 }
 
-@media (max-width: 768px) {
+.team-hero {
+  gap: 20px;
+  padding: 40px;
+  height: calc(100vh - 140px);
+  background: linear-gradient(to top, rgb(from var(--primary) r g b / 0.2), transparent);
+  background-size: cover;
+  background-position: center;
+}
+
+.team-hero-logo {
+  width: 60%;
+  aspect-ratio: 3;
+  object-fit: cover;
+}
+
+.team-hero-graphic {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+@media (max-width: 840px) {
   .hero,
   .split,
   .blog,
@@ -634,8 +659,7 @@ form button {
   .carousel {
     flex-direction: row;
     height: 50vw;
-    width: 500%;
-    left: -200%;
+    gap: 15px;
   }
 
   .carousel-mask {
