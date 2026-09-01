@@ -634,6 +634,8 @@ form button {
   .carousel {
     flex-direction: row;
     height: 50vw;
+    width: 500%;
+    left: -200%;
   }
 
   .carousel-mask {
