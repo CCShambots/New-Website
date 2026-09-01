@@ -667,11 +667,12 @@ form button {
   }
 
   .hero-carousel-image {
+    position: absolute;
     width: 70vw;
     height: 45vw;
     min-height: unset;
     flex: 0 0 auto;
-    transform: rotateY(1deg) scale(0.9);
+    transform: rotateY(10deg) scale(0.9);
     transform-origin: right center;
   }
 
@@ -680,28 +681,28 @@ form button {
   }
 
   .carousel .active ~ .hero-carousel-image {
-    transform: rotateX(-1deg) scale(0.9);
+    transform: rotateY(-10deg) scale(0.9);
     transform-origin: left center;
   }
 
   .carousel .slide-up {
-    transform: translateY(15px) rotateY(1deg) scale(0.9);
+    transform: translateX(calc(-70vw - 15px)) rotateY(10deg) scale(0.9);
   }
   .carousel .active ~ .slide-up {
-    transform: translateY(15px) rotateY(-1deg) scale(0.9);
+    transform: translateX(calc(-70vw - 15px)) rotateY(-10deg) scale(0.9);
   }
   .carousel .slide-up.active {
-    transform: translateY(15px) scale(1);
+    transform: translateX(calc(-70vw - 15px)) scale(1);
   }
 
   .carousel .slide-down {
-    transform: translateY(-15px) rotateY(1deg) scale(0.9);
+    transform: translateX(calc(70vw + 15px)) rotateY(10deg) scale(0.9);
   }
   .carousel .active ~ .slide-down {
-    transform: translateY(-15px) rotateY(-1deg) scale(0.9);
+    transform: translateX(calc(70vw + 15px)) rotateY(-10deg) scale(0.9);
   }
   .carousel .slide-down.active {
-    transform: translateY(-15px) scale(1);
+    transform: translateX(calc(70vw + 15px)) scale(1);
   }
 
   .menu-toggle {
