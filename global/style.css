@@ -632,10 +632,8 @@ form button {
   }
 
   .carousel {
-    position: relative;
-    display: block;
-    height: 50vw; /* room for the active image's height */
-    width: 100%;
+    flex-direction: row;
+    height: 50vw;
   }
 
   .carousel-mask {
@@ -643,46 +641,41 @@ form button {
   }
 
   .hero-carousel-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 70vw;
     height: 45vw;
     min-height: unset;
-    transform: translate(-50%, -50%) rotateY(10deg);
+    flex: 0 0 auto;
+    transform: rotateY(10deg) scale(0.9);
     transform-origin: right center;
   }
 
   .carousel .active {
-    width: 75vw;
-    height: 50vw;
-    transform: translate(-50%, -50%) rotateY(0deg);
-    z-index: 2;
+    transform: rotateY(0deg) scale(1);
   }
 
   .carousel .active ~ .hero-carousel-image {
-    transform: translate(-50%, -50%) rotateY(-10deg);
+    transform: rotateY(-10deg) scale(0.9);
     transform-origin: left center;
   }
 
   .carousel .slide-up {
-    transform: translate(-50%, -50%) translateX(calc(-70vw - 15px)) rotateY(10deg);
+    transform: translateX(calc(-70vw - 15px)) rotateY(10deg) scale(0.9);
   }
   .carousel .active ~ .slide-up {
-    transform: translate(-50%, -50%) translateX(calc(-70vw - 15px)) rotateY(-10deg);
+    transform: translateX(calc(-70vw - 15px)) rotateY(-10deg) scale(0.9);
   }
   .carousel .slide-up.active {
-    transform: translate(-50%, -50%) translateX(calc(-70vw - 15px));
+    transform: translateX(calc(-70vw - 15px)) scale(1);
   }
 
   .carousel .slide-down {
-    transform: translate(-50%, -50%) translateX(calc(70vw + 15px)) rotateY(10deg);
+    transform: translateX(calc(70vw + 15px)) rotateY(10deg) scale(0.9);
   }
   .carousel .active ~ .slide-down {
-    transform: translate(-50%, -50%) translateX(calc(70vw + 15px)) rotateY(-10deg);
+    transform: translateX(calc(70vw + 15px)) rotateY(-10deg) scale(0.9);
   }
   .carousel .slide-down.active {
-    transform: translate(-50%, -50%) translateX(calc(70vw + 15px));
+    transform: translateX(calc(70vw + 15px)) scale(1);
   }
 
   .menu-toggle {
