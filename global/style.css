@@ -155,6 +155,7 @@ footer {
 
 .footer-logo {
   width: 80%;
+  padding: 10px;
 }
 
 .footer-links {
@@ -571,7 +572,6 @@ form button {
   padding: 20px;
 }
 
-
 .menu-toggle {
   display: none;
   background: none;
@@ -585,13 +585,23 @@ form button {
 }
 
 @media (max-width: 768px) {
-  
-  .hero, 
-  .split, 
-  .blog, 
+  .hero,
+  .split,
+  .blog,
   .blog-posts {
     grid-template-columns: 1fr;
     height: auto;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 14vw, 6em);
+  }
+
+  .hero-buttons {
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   footer {
@@ -600,18 +610,23 @@ form button {
     padding: 30px 20px;
     column-gap: 0;
     row-gap: 30px;
+    text-align: center;
+  }
+  .footer-content {
+    grid-row: 2;
   }
   .footer-links {
     grid-template-columns: 1fr;
+    grid-row: 1;
   }
-  .footer-socials, 
+  .footer-socials,
   .footer-copyright {
     grid-column: span 1;
     grid-area: auto;
   }
 
-  .card, 
-  .award-card, 
+  .card,
+  .award-card,
   .mentor-card {
     width: 100%;
     min-width: unset;
@@ -651,25 +666,41 @@ form button {
     border-top: 1px solid var(--primary-dark);
   }
 
-  /* Creates a full-width flex container */
-.sub-nav {
-  display: flex;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
+  /* Stack the parent link and the dropdown vertically */
+  .sub-nav {
+    border-top: 1px solid var(--primary-dark);
+    display: flex;
+    flex-direction: column; /* THIS IS KEY: Stacks items vertically */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 
-/* Forces each item to grow and fill the available space evenly */
-.sub-nav-item {
-  flex: 1; 
-  text-align: center;
-}
+  /* Override the desktop absolute positioning and height limits */
+  .navbar .sub-nav-items {
+    position: static; /* Pushes the next nav items down instead of overlapping */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style:none;
+    
+    /* Remove all desktop height/hiding constraints */
+    max-height: none; 
+    overflow: visible; 
+  }
 
-/* Ensures the link fills its flex container */
-.sub-nav-item a {
-  display: block;
-  width: 100%;
-  padding: 12px 0;
-}
+  /* Forces each item to grow and fill the available space evenly */
+  .navbar .sub-nav-item {
+    width: 100%;
+    text-align: left; /* Usually better for vertical mobile menus than center */
+  }
+
+  /* Ensures the link fills its container */
+  .navbar .sub-nav-item a {
+    display: block;
+    width: 100%;
+    padding: 12px 40px; /* Extra left padding to indent sub-items */
+    box-sizing: border-box; /* Prevents padding from causing overflow */
+  }
 }
