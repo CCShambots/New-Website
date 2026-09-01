@@ -87,12 +87,9 @@ body {
 }
 
 .nav-item a.active,
-.sub-nav a.active,
+.sub-nav.active a,
 .sub-nav-item a.active {
-  color: var(--alt-text);
-}
-.sub-nav-item a.active {
-  color: var(--alt-text);
+  color: var(--alt-text) !important;
 }
 
 .navbar .sub-nav-items {
