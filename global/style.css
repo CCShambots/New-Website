@@ -138,6 +138,11 @@ p {
   background-color: var(--primary-dark);
 }
 
+.navbar-logo {
+  padding: 7px 12px;
+  height: calc(100% - 14px);
+}
+
 .superscript {
   position: relative;
   bottom: 0.4em;
@@ -163,7 +168,7 @@ footer {
   width: 80%;
   min-width: 260px;
   max-width: 400px;
-  padding: 10px;
+  padding: 15px;
 }
 
 .footer-links {
@@ -687,7 +692,7 @@ form button {
   .card,
   .award-card,
   .mentor-card {
-    width: 100%;
+    width: 47%;
     min-width: unset;
   }
 
@@ -773,5 +778,10 @@ form button {
   .footer-logo {
     width: 80%;
     margin: 0 auto;
+  }
+  .card,
+  .award-card,
+  .mentor-card {
+    width: 100%;
   }
 }
