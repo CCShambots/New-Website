@@ -161,6 +161,8 @@ footer {
 
 .footer-logo {
   width: 80%;
+  min-width: 260px;
+  max-width: 400px;
   padding: 10px;
 }
 
@@ -661,15 +663,21 @@ form button {
   }
   .footer-content {
     grid-row: 2;
+    display: flex;
+    flex-direction: column;
   }
   .footer-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-row: 1;
   }
   .footer-socials,
   .footer-copyright {
     grid-column: span 1;
     grid-area: auto;
+  }
+  .footer-logo {
+    width: 60%;
+    margin: 5px auto;
   }
 
   .card,
@@ -682,7 +690,6 @@ form button {
   .carousel-mask {
     display: none;
   }
-    
 
   .menu-toggle {
     display: block;
@@ -751,5 +758,28 @@ form button {
   .contact-form {
     margin-top: 0;
     padding: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4em);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2em);
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-logo {
+    width: 80%;
+    margin: 0 auto;
   }
 }
