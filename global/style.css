@@ -656,54 +656,10 @@ form button {
     min-width: unset;
   }
 
-  .carousel {
-    flex-direction: row;
-    height: 50vw;
-    gap: 15px;
-  }
-
   .carousel-mask {
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, var(--mask-color) 10%, var(--mask-color) 90%, rgba(0, 0, 0, 0.7) 100%);
+    display: none;
   }
-
-  .hero-carousel-image {
-    position: absolute;
-    width: 70vw;
-    height: 45vw;
-    min-height: unset;
-    flex: 0 0 auto;
-    transform: translateX(calc(-70vw - 15px)) rotateY(10deg) scale(0.9);
-    transform-origin: right center;
-  }
-
-  .carousel .active {
-    transform: rotateY(0deg) scale(1);
-  }
-
-  .carousel .active ~ .hero-carousel-image {
-    transform: translateX(calc(-70vw - 15px)) rotateY(-10deg) scale(0.9);
-    transform-origin: left center;
-  }
-
-  .carousel .slide-up {
-    transform: translateX(calc(-70vw - 15px)) rotateY(10deg) scale(0.9);
-  }
-  .carousel .active ~ .slide-up {
-    transform: translateX(calc(-70vw - 15px)) rotateY(-10deg) scale(0.9);
-  }
-  .carousel .slide-up.active {
-    transform: translateX(calc(-70vw - 15px)) scale(1);
-  }
-
-  .carousel .slide-down {
-    transform: translateX(calc(70vw + 15px)) rotateY(10deg) scale(0.9);
-  }
-  .carousel .active ~ .slide-down {
-    transform: translateX(calc(70vw + 15px)) rotateY(-10deg) scale(0.9);
-  }
-  .carousel .slide-down.active {
-    transform: translateX(calc(70vw + 15px)) scale(1);
-  }
+    
 
   .menu-toggle {
     display: block;
