@@ -25,6 +25,11 @@ body {
   background-color: var(--background);
 }
 
+p {
+  max-width: 800px;
+  line-height: 1.5em;
+}
+
 .navbar {
   background-color: var(--primary);
   width: 100%;
@@ -594,6 +599,7 @@ form button {
 }
 
 .team-hero-logo {
+  max-width: 800px;
   width: 60%;
   aspect-ratio: 3;
   object-fit: cover;
@@ -606,6 +612,7 @@ form button {
   width: 25%;
   aspect-ratio: 1;
   object-fit: cover;
+  max-width: 350px;
 }
 
 @media (max-width: 840px) {
@@ -617,6 +624,23 @@ form button {
     height: auto;
     align-items: center;
     padding: 20px;
+  }
+
+  .team-hero {
+    text-align: center;
+    height: calc(55vh - 100px);
+    padding: 20px;
+  }
+
+  .team-hero-logo {
+    width: 100%;
+  }
+
+  .team-hero-graphic {
+    padding: 0;
+    margin: 0;
+    width: 15vh;
+    bottom: calc(50% - 5vh);
   }
 
   .hero-title {
