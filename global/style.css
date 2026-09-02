@@ -672,7 +672,7 @@ form button {
     height: 45vw;
     min-height: unset;
     flex: 0 0 auto;
-    transform: rotateY(10deg) scale(0.9);
+    transform: translateX(calc(-70vw - 15px)) rotateY(10deg) scale(0.9);
     transform-origin: right center;
   }
 
@@ -681,7 +681,7 @@ form button {
   }
 
   .carousel .active ~ .hero-carousel-image {
-    transform: rotateY(-10deg) scale(0.9);
+    transform: translateX(calc(-70vw - 15px)) rotateY(-10deg) scale(0.9);
     transform-origin: left center;
   }
 
