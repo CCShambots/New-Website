@@ -623,7 +623,6 @@ form button {
     grid-template-columns: 1fr;
     height: auto;
     align-items: center;
-    padding: 20px;
   }
 
   .team-hero {
