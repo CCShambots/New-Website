@@ -44,11 +44,17 @@ jobs:
       - name: Build blog pages
         run: node scripts/build-blog-pages.js
 
+      - name: Check generated files
+        run: ls -R src/blog
+
       - name: Generate the sitemap
         uses: cicirello/generate-sitemap@v1
         with:
           base-url-path: https://example.com
           path-to-root: src
+          drop-html-extension: false
+          # Force the action to check untracked files in the directory
+          sitemap-format: xml
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
