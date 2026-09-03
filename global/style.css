@@ -62,11 +62,6 @@ p {
   background-color: var(--primary);
   transition: background-color 0.05s;
 }
-.navbar .nav-item:hover,
-.sub-nav a:hover {
-  position: relative;
-  background-color: var(--primary-dark);
-}
 
 .navbar .nav-item a {
   display: flex;
@@ -115,11 +110,6 @@ p {
   width: 100%;
 }
 
-.navbar .sub-nav:hover .sub-nav-items {
-  border-top: 1px solid #005;
-  max-height: 300px;
-}
-
 .navbar .sub-nav-item a {
   display: block;
   color: var(--dark-text);
@@ -132,10 +122,6 @@ p {
 
 .navbar .sub-nav-item a::after {
   content: "";
-}
-
-.navbar .sub-nav-item:hover {
-  background-color: var(--primary-dark);
 }
 
 .navbar-logo {
@@ -192,9 +178,6 @@ footer {
   color: var(--alt-text);
   text-decoration: none;
 }
-.footer-links .link-list li a:hover {
-  color: var(--dark-text);
-}
 
 .footer-socials {
   grid-area: 2 / 1 / 2 / 2;
@@ -212,9 +195,6 @@ footer {
 }
 .footer-socials a svg {
   margin-right: 5px;
-}
-.footer-socials a:hover {
-  color: var(--dark-text);
 }
 
 .footer-copyright {
@@ -245,12 +225,6 @@ footer {
   transition:
     transform 0.2s,
     box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 }
 
 .card h2 {
@@ -420,10 +394,6 @@ section.content {
   transition: 0.3s ease;
   border: 2px solid var(--primary);
 }
-.hero-button:hover {
-  background-color: var(--dark-text);
-  color: var(--primary);
-}
 
 .card-section-separator {
   width: 100%;
@@ -554,10 +524,6 @@ form button {
     transform 0.2s,
     box-shadow 0.2s;
 }
-.blog-posts .blog-post:hover {
-  transform: translateY(-2.5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 .blog-posts .blog-post h2 {
   margin-top: 0;
 }
@@ -575,10 +541,6 @@ form button {
   text-decoration: none;
   transition: 0.3s ease;
   border: 2px solid var(--primary);
-}
-.blog-posts .blog-post a:hover {
-  background-color: var(--dark-text);
-  color: var(--primary);
 }
 
 .blog-nav {
@@ -625,6 +587,52 @@ form button {
   aspect-ratio: 1;
   object-fit: cover;
   max-width: 350px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar .nav-item:hover,
+  .sub-nav a:hover {
+    position: relative;
+    background-color: var(--primary-dark);
+  }
+
+  .navbar .sub-nav:hover .sub-nav-items {
+    border-top: 1px solid #005;
+    max-height: 300px;
+  }
+
+  .navbar .sub-nav-item:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .footer-links .link-list li a:hover {
+    color: var(--dark-text);
+  }
+
+  .footer-socials a:hover {
+    color: var(--dark-text);
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .hero-button:hover {
+    background-color: var(--dark-text);
+    color: var(--primary);
+  }
+
+  .blog-posts .blog-post:hover {
+    transform: translateY(-2.5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .blog-posts .blog-post a:hover {
+    background-color: var(--dark-text);
+    color: var(--primary);
+  }
 }
 
 @media (max-width: 840px) {
@@ -759,12 +767,6 @@ form button {
     border-top: 1px solid var(--primary-dark);
   }
 
-  .navbar .nav-item:hover,
-  .navbar .sub-nav a:hover,
-  .navbar .sub-nav-item:hover {
-    background-color: var(--primary);
-  }
-
   .navbar .nav-item:active,
   .navbar .sub-nav > a:active,
   .navbar .sub-nav-item:active {
@@ -827,12 +829,12 @@ form button {
     transition: max-height 0.25s ease;
   }
 
-  .navbar .sub-nav:hover .sub-nav-items {
+  .navbar .sub-nav-items {
     max-height: 0;
   }
 
   .navbar .sub-nav.expanded .sub-nav-items,
-  .navbar .sub-nav.expanded:hover .sub-nav-items {
+  .navbar .sub-nav-items {
     max-height: 500px;
   }
 
