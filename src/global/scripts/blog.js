@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     postsData = Array.from(blogPosts).map(post => ({
         title: post.querySelector("h2").textContent,
+        date: post.querySelector(".blog-post-meta").textContent,
+        tags: post.dataset.tags ? post.dataset.tags.split(',').map(tag => tag.trim()) : [],
         content: post.querySelector("p").textContent
     }));
 
