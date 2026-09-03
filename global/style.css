@@ -288,7 +288,7 @@ footer {
   display: grid;
   gap: 20px;
   grid-template-columns: 1.1fr 1fr;
-  height: calc(100vh - 60px);
+  height: calc(100dvh - 60px);
   padding: 0 40px;
   background: linear-gradient(to top, rgb(from var(--primary) r g b / 0.2), transparent);
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -604,7 +604,7 @@ form button {
 .team-hero {
   gap: 20px;
   padding: 40px;
-  height: calc(100vh - 140px);
+  height: calc(100dvh - 140px);
   background: linear-gradient(to top, rgb(from var(--primary) r g b / 0.2), transparent);
   background-size: cover;
   background-position: center;
@@ -643,7 +643,7 @@ form button {
 
   .team-hero {
     text-align: center;
-    height: calc(55vh - 100px);
+    height: calc(55dvh - 100px);
     padding: 20px;
   }
 
@@ -654,8 +654,8 @@ form button {
   .team-hero-graphic {
     padding: 0;
     margin: 0;
-    width: 15vh;
-    bottom: calc(50% - 5vh);
+    width: 15dvh;
+    bottom: calc(50% - 5dvh);
   }
 
   .hero-title {
@@ -718,7 +718,7 @@ form button {
     right: 0;
     width: 78%;
     max-width: 300px;
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     margin: 0;
     background-color: var(--primary);
     box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3);
@@ -738,7 +738,7 @@ form button {
     top: 60px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     background-color: rgba(0, 0, 0, 0);
     pointer-events: none;
     transition: background-color 0.3s ease;
