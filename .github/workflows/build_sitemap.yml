@@ -38,6 +38,9 @@ jobs:
       - name: Update post list in index.html
         run: node scripts/update-blog-index.js
 
+      - name: Build blog pages
+        run: node scripts/build-blog-pages.js
+
       - name: Generate the sitemap
         uses: cicirello/generate-sitemap@v1
         with:

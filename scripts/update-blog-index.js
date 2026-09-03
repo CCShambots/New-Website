@@ -1,3 +1,4 @@
+// Build script to update the blog index in blog.html based on the markdown files in src/blog
 const fs = require('fs');
 const path = require('path');
 
@@ -35,11 +36,10 @@ const items = files.map(f => {
     const metadata = parseFrontMatter(fileContent);
 
     const title = metadata.title || f.replace(/\.md$/, '').replace(/[-_]/g, ' ');
-    const slug = f.replace(/\.md$/, '');
     const data = metadata.date ? new Date(metadata.date) : new Date();
     const tags = metadata.tags ? metadata.tags.split(',').map(tag => tag.trim()) : [];
     const excerpt = metadata.excerpt || '';
-    const href = path.join(BLOG_DIR, f);
+    const href = path.join(BLOG_DIR, f.replace(/\.md$/, '.html'));
     return `  <div class="blog-post" data-tags="${tags.join(',')}">
     <h2><a href="${href}">${title}</a></h2>
     <p class="blog-post-meta">${data.toDateString()}</p>
