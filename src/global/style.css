@@ -546,6 +546,30 @@ form button {
 .blog-nav {
   padding: 20px;
 }
+.blog-nav input[type="text"] {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--alt-background);
+  color: var(--text);
+}
+.blog-nav button {
+  background-color: var(--primary);
+  color: var(--dark-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.blog-nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
 .menu-toggle {
   display: none;
@@ -635,7 +659,7 @@ form button {
   }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 1035px) {
   .hero,
   .split,
   .blog,
@@ -854,6 +878,15 @@ form button {
   .contact-form {
     margin-top: 0;
     padding: 0;
+  }
+
+  .blog-nav {
+    padding: 10px 0;
+    grid-row: 1;
+  }
+
+  .blog-nav-links {
+    display: none;
   }
 }
 
