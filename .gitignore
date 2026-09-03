@@ -1,6 +1,14 @@
 # vscode cache
-./vscode/*
+vscode/*
+
+# Node.js
 node_modules/
 .env
 *.log
 .DS_Store
+
+# MacOS
+.DS_Store
+
+# Built files
+src/blog/**/*.html

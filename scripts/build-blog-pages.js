@@ -106,7 +106,7 @@ files.forEach(f => {
         </nav>
     </header>
             <main>
-                <section class="blog-post content">${htmlContent}</section>
+                <section class="blog-post content"><div>${htmlContent}</div></section>
             </main>
             <footer>
         <div class="footer-content">

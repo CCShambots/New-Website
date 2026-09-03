@@ -1,0 +1,121 @@
+:root {
+  --primary: #1f328e;
+  --primary-dark: #001f5d;
+    --primary-light: #4d5ec1;
+  --accent: #f4c430; /*#c9a978*/
+  --text: #000;
+  --dark-text: #fff;
+  --alt-text: #ccc;
+  --background: #f0f0f0;
+  --alt-background: #e0e0e0;
+  --dark-background: #00000a;
+  --mask-color: rgba(0, 0, 0, 1);
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("fonts/HelveticaNeueBold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.blog-post {
+    color: var(--text);
+    background-color: var(--background);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.blog-post * {
+    max-width: 800px;
+}
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6 {
+    color: var(--primary);
+    margin-top: 0.8em;
+    margin-bottom: 1.5em;
+    font-size: 1em;
+}
+
+.blog-post a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+.blog-post a:active {
+    color: var(--primary-light);
+}
+.blog-post a:visited {
+    color: var(--primary);
+}
+
+.blog-post blockquote {
+    border-left: 4px solid var(--primary);
+    height: auto;
+    padding-left: 1em;
+    margin-left: 0;
+    color: var(--text);
+    background-color: var(--alt-background);
+}
+
+.blog-post code {
+    background-color: var(--alt-background);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+}
+
+.blog-post pre {
+    background-color: var(--alt-background);
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.blog-post img {
+    height: auto;
+    border-radius: 4px;
+    margin: 1em 0;
+}
+
+.blog-post table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.blog-post td {
+    border: 1px solid var(--primary);
+    padding: 0.5em;
+    text-align: left;
+}
+.blog-post th {
+    border: 1px solid var(--alt-text);
+    padding: 0.5em;
+    background-color: var(--primary);
+    color: var(--dark-text);
+}
+
+.blog-post ul,
+.blog-post ol {
+    padding-left: 1.5em;
+}
+
+.blog-post li {
+    margin-bottom: 0.3em;
+}
+
+.blog-post hr {
+    border: none;
+    border-top: 1px solid var(--primary);
+    margin: 3em 0 1em 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .blog-post a:hover {
+        color: var(--primary-light);
+    }
+}
