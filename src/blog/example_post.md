@@ -35,7 +35,7 @@ This paragraph contains **sample bold text**, *sample italic text*, and a [test 
 
 ## 3. Sample Image Placeholder
 
-<Image alt="Test image placeholder showing a mountain landscape" caption="[TEST] Sample image caption for layout verification" src="image_agent_tag_12075830631971480082"/>
+<Image alt="Test image placeholder showing a mountain landscape" caption="[TEST] Sample image caption for layout verification" src="../media/site/logo_blue.png"/>
 
 ---
 
