@@ -4,7 +4,7 @@ const path = require('path');
 const marked = require('marked');
 
 const MD_DIR = 'src/blog';
-const BLOG_DIR = 'blog';
+const BLOG_DIR = 'src/blog';
 
 // Ensure the blog directory exists
 if (!fs.existsSync(BLOG_DIR)) {
